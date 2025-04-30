@@ -7,17 +7,15 @@ void Player::setup(glm::vec2 position)
 {
   this->position = position;
   radius = 15;
-  segments = 40;
-  // circle.setup(radius, position, segments);
+  segments = 20;
 
-  acceleration.y = 1;
+  acceleration.y = 300;
 }
 
 void Player::update(float deltaTime)
 {
   velocity += acceleration * deltaTime;
   position += velocity * deltaTime;
-  SDL_Log("%d", position.y);
 }
 
 void Player::render(SDL_Renderer *renderer)
