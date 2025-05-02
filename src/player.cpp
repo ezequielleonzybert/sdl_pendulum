@@ -9,7 +9,7 @@ void Player::setup(glm::vec2 position)
   radius = 15;
   segments = 20;
 
-  acceleration.y = 300;
+  acceleration.y = 400;
 }
 
 void Player::update(float deltaTime)
