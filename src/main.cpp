@@ -2,6 +2,7 @@
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
 #include <vector>
+#include "globals.hpp"
 #include "player.hpp"
 
 static SDL_Window *window = NULL;
@@ -19,7 +20,7 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
         return SDL_APP_FAILURE;
     }
 
-    if (!SDL_CreateWindowAndRenderer("Pendulum", 16 * 50, 9 * 50, 0, &window, &renderer))
+    if (!SDL_CreateWindowAndRenderer("Pendulum", WIDTH, HEIGHT, 0, &window, &renderer))
     {
         SDL_Log("Couldn't create window/renderer: %s", SDL_GetError());
         return SDL_APP_FAILURE;

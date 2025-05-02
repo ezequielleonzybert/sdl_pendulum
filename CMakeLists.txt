@@ -9,7 +9,7 @@ include_directories(vendored/glm)
 
 add_subdirectory(vendored/SDL EXCLUDE_FROM_ALL)
 
-file(GLOB MY_SOURCES "src/*.cpp" "include/*.hpp" )
+file(GLOB MY_SOURCES "src/*.cpp")
 add_executable(${PROJECT_NAME} ${MY_SOURCES})
 
 target_link_libraries(${PROJECT_NAME} PRIVATE SDL3::SDL3)
