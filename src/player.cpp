@@ -5,6 +5,8 @@ Player::Player() {}
 
 void Player::setup(glm::vec2 position)
 {
+  state = State::FLOATING;
+  timer = 0;
   this->position = position;
   radius = 15;
   segments = 20;
@@ -14,10 +16,21 @@ void Player::setup(glm::vec2 position)
 
 void Player::update(float deltaTime)
 {
-  velocity += acceleration * deltaTime;
-  position += velocity * deltaTime;
+  if (state == State::FLOATING)
+  {
+    position.y = sin(timer * 5) * 10 + HEIGHT / 2;
+  }
+  else if (state == State::FALLING)
+  {
+    velocity += acceleration * deltaTime;
+    position += velocity * deltaTime;
 
-  (bounce(deltaTime));
+    (bounce(deltaTime));
+  }
+  else if (state == State::SWINGING)
+  {
+  }
+  timer += deltaTime;
 }
 
 void Player::render(SDL_Renderer *renderer)

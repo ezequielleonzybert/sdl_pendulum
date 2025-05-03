@@ -37,6 +37,14 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
     {
         return SDL_APP_SUCCESS;
     }
+    else if (event->type == SDL_EVENT_KEY_DOWN)
+    {
+        SDL_Keycode key = event->key.key;
+        if (key == SDLK_DOWN)
+        {
+            player.state = Player::State::FALLING;
+        }
+    }
     return SDL_APP_CONTINUE;
 }
 
